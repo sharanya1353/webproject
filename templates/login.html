@@ -1,0 +1,46 @@
+{% extends 'nav.html' %}  
+{% block content %}
+<style>
+    input[type=text]{
+        width:300px;
+        margin: 10px 10px;
+    }
+    input[type=password]{
+        width:300px;
+        margin: 10px 10px;
+    }
+    button{
+        margin-left: 100px;
+    }
+</style>
+<center>
+<div class="container">
+    {% for message in messages %}
+    <h1>{{message}}</h1>
+    {% endfor %}
+</div>
+    <h1>Login Here</h1>
+    <div>
+        <form action="{% url 'login1' %}" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="uname" placeholder="username">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" name="pass1" placeholder="Password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit " value="Login ">Login</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</center>
+{% endblock %}

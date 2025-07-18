@@ -1,0 +1,73 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+<style>
+    input[type=text]{
+        width: 300px;
+        margin-left: 500px;
+    }
+    input[type=password]{
+        width: 300px;
+        margin-left: 500px;
+    }
+    input[type=email]{
+        width: 300px;
+        margin-left: 500px;
+    }
+    form{
+       text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+    form{
+        border: 1px solid black;
+        
+    }
+    
+</style>
+<h1 class="mb-4">Registration</h1>
+<div class="container">
+    {% for message in messages %}
+    <h5>
+        <div class="alert alert-danger mt-5" style="width: 50%;">
+            {{message}}
+        </div>
+    </h5>
+    {% endfor %}
+</div>
+
+
+<form action="{% url 'usercreate' %}"  method="post">
+    {% csrf_token %}
+    
+
+    
+    <table class="table">
+        <tr>
+            <td><input type="text" name="name1" class="form-control" placeholder="First Name"></td>
+        </tr>
+        <tr>
+        <td><input type="text" name="name2" class="form-control" placeholder="Last Name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="name3" class="form-control" placeholder="Username"></td>
+        </tr>
+        <tr>
+            <td><input type="password" name="pass1" class="form-control" placeholder="Password"></td>
+        </tr>
+        <tr>
+            <td><input type="password" name="pass2" class="form-control" placeholder="Confirm Password"></td>
+        </tr>
+        <tr>
+            <td><input type="email" name="email1" class="form-control" placeholder="Email"></td>
+        </tr>
+        <tr>
+            <td><button type="submit" class="btn btn-primary">Register</button></td>
+        </tr>
+        <tr>
+            <td><p>Already a Member? <a href="{% url 'login1' %}">Login</a></p></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
